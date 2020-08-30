@@ -90,4 +90,7 @@ configure(*, auto_save: bool = None, file_format: pvars.Format = None, extra_par
 ```
 
 ## Implementation details and complications
-The data itself is stored in a file with the same name as the main script but with the ".pdb" extensions instead. The format used is by default pickle, but can also be configured to JSON or CSV. Keep in mind the restrictions these formats impose. Keep the default format (Pickle), to be the least restricted.
+The data itself is stored in a file... WIP The format used is by default pickle, but can also be configured to JSON or CSV. Keep in mind the restrictions these formats impose. Keep the default format (Pickle), to be the least restricted.
+
+## Okayyy, but I got (insert generic DB), why would I want this?
+This library represent a shift in how you view persisent data. Instead of seeing it in the light of whatever database is used, it's represented as what it truly is, with lower level details abstracted away. It's also a great libary for beginners, since fewer choices and actions are necessary than usually. These aspects result in less and clearer code. Another interesting detail is that every db is by default created per module/script and not per main script, offering library developers a cleaner and more standardized alternative to config files.  
