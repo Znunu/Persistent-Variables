@@ -84,7 +84,7 @@ Saves all existing variables
 save()
 ```
 
-Configures the modules
+Configures the module
 ```
 configure(*, auto_save: bool = None, file_format: pvars.Format = None, extra_param: dict = None)
 ```
