@@ -139,7 +139,7 @@ def get_context(extra_path: typing.Union[str, os.PathLike] = "", **config_params
     module_path = pathlib.Path(module.__file__)
     db_dir = pathlib.Path(module.__file__).parent / os.fspath(extra_path)
     db_dir.mkdir(parents=True, exist_ok=True)
-    db_path = (db_dir / (module_path.stem + ".pdb")).resolve().__str__()
+    db_path = (db_dir / (module_path.stem + ".pydb")).resolve().__str__()
     if not db_dir.parent.exists(): raise Exception(f"{db_path} is not valid")
     for ctx in _contexts:
         if db_path == ctx.path:
