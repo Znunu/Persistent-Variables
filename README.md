@@ -81,7 +81,7 @@ var = make_var(None, lambda: var)
 
 Configures the object. The extra kwargs passed to `get_context` are passed here
 ```python
-configure(*, auto_save: bool = None, file_format: pvars.Format = None, extra_param: dict = None)
+configure(*, auto_save: bool = None, file_format: pvars.Format = None, **dump_args)
 ```
 
 Resets all variables
