@@ -4,6 +4,7 @@ Simple persistent variables in python (not to be confused with pointers)
 ## Basic Example
 ```python
 import pvars
+pvars = pvars.get_context()
 
 if __name__ == '__main__':
     main()
@@ -29,6 +30,7 @@ def main():
 ## Advanced Example
 ```python
 import pvars
+pvars = pvars.get_context()
 
 if __name__ == '__main__':
     main()
@@ -59,34 +61,42 @@ hello
 ```
 
 ## API Documentation
-Create a new persistent variable
+### Module
+Returns a ModuleContext object configured according to any options passed to it. The object can then be used to create p vars. It can also be seen as the database object itself.
+```python
+get_context(extra_path = "", abs_path = "", **config_params)
 ```
-make_var(default, lambda)
+
+
+### ModuleContext class
+Creates a new p var
+```python
+make_var(default, lambda_func)
 ```
-The function should _always_ be used like this
-```
+The function should almost _always_ be used like in this example
+```python
 global var
-var = make_var(default, lambda: var)
+var = make_var(None, lambda: var)
+```
+
+Configures the object. The extra kwargs passed to `get_context` are passed here
+```python
+configure(*, auto_save: bool = None, file_format: pvars.Format = None, extra_param: dict = None)
 ```
 
 Resets all variables
-```
+```python
 reset()
 ```
 
 Returns all existing variables as a dict
-```
+```python
 all()
 ```
 
 Saves all existing variables
-```
+```python
 save()
-```
-
-Configures the module
-```
-configure(*, auto_save: bool = None, file_format: pvars.Format = None, extra_param: dict = None)
 ```
 
 ## Implementation details and complications
