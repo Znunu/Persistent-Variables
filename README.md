@@ -60,9 +60,19 @@ hello
 {'key1': 'hello', 'key2': 'hello'}
 ```
 
+## Another Example 
+Sometimes you need to edit the p vars directly. A pydb database can be "reduced" to a persistent dict behaving much like the one in the `shelve` module. In the dict, each key is a variable.
+```python
+import pvars
+first_db = pvars.get_context(abs_path = "path/to/db1.pydb").all()
+for key in first_db.keys():
+    first_db[key] += 1
+first_db.sync() # Doesn't need to (and can't) be closed, only synced
+```
+
 ## API Documentation
 ### Module
-Returns a ModuleContext object configured according to any options passed to it. The object can then be used to create p vars. It can also be seen as the database object itself.
+Returns a ModuleContext object configured according to any options passed to it. The object can then be used to create p vars. It can also be seen as the database object itself, with the internal database being accessible through the `all()` member
 ```python
 get_context(extra_path = "", abs_path = "", **config_params)
 ```
@@ -100,7 +110,7 @@ save()
 ```
 
 ## Implementation details and complications
-The data itself is stored in a file... WIP The format used is by default pickle, but can also be configured to JSON or CSV. Keep in mind the restrictions these formats impose. Keep the default format (Pickle), to be the least restricted.
+The data itself is stored in a file with the .pdb extension and with the same name as the module. The format used is by default pickle, but can also be configured to JSON or CSV. Keep in mind the restrictions these formats impose. Keep the default format (Pickle), to be the least restricted.
 
 ## Okayyy, but I got (insert generic DB), why would I want this?
 This library represent a shift in how you view persisent data. Instead of seeing it in the light of whatever database is used, it's represented as what it truly is, with lower level details abstracted away. It's also a great libary for beginners, since fewer choices and actions are necessary than usually. These aspects result in less and clearer code. Another interesting detail is that every db is by default created per module/script and not per main script, offering library developers a cleaner and more standardized alternative to config files.  
