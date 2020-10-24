@@ -91,7 +91,7 @@ def main():
 ```python
 {"Hello": 6}
 ```
-`auto_save` was off, and we didn't call `save`, so how could our changes be stored? Because the `idict` automically saves when assigned to. idicts and pvars can seamlessly be combined.
+`auto_save` was off, and we didn't call `save`, so how could our changes be stored? Because the `idict` automatically saves when assigned to. idicts and pvars can seamlessly be combined.
 
 
 ## API Documentation
