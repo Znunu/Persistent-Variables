@@ -119,11 +119,6 @@ Creates a new idict. Make sure to use a unique name each time this function is c
 make_dict(default, name)
 ```
 
-Indentical to `save()` (see below)
-```python
-idict.save()
-```
-
 Configures the object. The extra kwargs passed to `get_context` are passed here
 ```python
 configure(*, auto_save: bool = False, file_format: pvars.Format = None, **dump_args)
@@ -142,6 +137,12 @@ all()
 Saves all existing variables
 ```python
 save()
+```
+
+### Idict class
+Indentical to `ModuleContext.save()`
+```python
+idict.save()
 ```
 
 ## Implementation details and complications
