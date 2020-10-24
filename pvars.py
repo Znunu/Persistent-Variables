@@ -87,6 +87,9 @@ class Idict(dict):
         super().__setitem__(key, value)
         self._parent.save()
 
+    def save(self):
+        self._parent.save()
+
 
 class PVar:
 
