@@ -142,7 +142,7 @@ save()
 ### Idict class
 Indentical to `ModuleContext.save()`
 ```python
-idict.save()
+save()
 ```
 
 ## Implementation details and complications
